@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LightBox from "./components/lightbox/LightBox";
 import Navigation from "./components/navigation/Navigation";
 import ProductInfo from "./components/products info/ProductInfo";
