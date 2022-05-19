@@ -1,0 +1,194 @@
+:root {
+    --orange: hsl(26, 100%, 55%);
+    --pale-orange: hsl(25, 100%, 94%);
+
+    --very-dark-blue: hsl(220, 13%, 13%);
+    --dark-graish-blue: hsl(219, 9%, 45%);
+    --graish-blue: hsl(220, 14%, 75%);
+    --light-graish-blue: hsl(223, 64%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --light-box-bg: hsla(0, 0%, 0%, 0.745);
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+span,
+li,
+a,
+p {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    line-height: 1.5;
+}
+
+body {
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.App {
+    min-height: 100vh;
+    position: relative;
+
+    .main-app-container {
+        display: flex;
+        align-items: center;
+
+        gap: 2rem;
+        max-width: 70%;
+        margin-inline: auto;
+    }
+
+    .body-fade {
+        background-color: var(--light-box-bg);
+        z-index: 9999;
+
+        position: fixed;
+        inset: 0;
+
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .body-fade.body-fade-show {
+        animation: body-fade-show 250ms ease forwards;
+    }
+    .body-fade.body-fade-hide {
+        animation: body-fade-hide 250ms ease forwards;
+    }
+
+    @keyframes body-fade-show {
+        0% {
+            visibility: hidden;
+            opacity: 0;
+        }
+        1% {
+            visibility: visible;
+            opacity: 0;
+        }
+        100% {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    @keyframes body-fade-hide {
+        0% {
+            visibility: visible;
+            opacity: 1;
+        }
+        1% {
+            opacity: 1;
+        }
+        100% {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+}
+
+// 1111px
+@media screen and (max-width: 69.43rem) {
+    .main-app-container {
+        flex-direction: column;
+    }
+}
+
+// 800px
+@media screen and (max-width: 53.1rem) {
+    .main-app-container {
+        max-width: 100% !important;
+    }
+
+    nav {
+        padding-inline: 1rem;
+        .main-nav-container {
+            .side-container {
+                position: unset;
+                .cart-container {
+                    position: absolute;
+                    z-index: 9;
+                    top: 5rem;
+                    left: 0;
+                    inset-inline: 1rem;
+                    box-shadow: rgba(50, 50, 93, 2.5) 0px 13px 27px -5px,
+                        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                }
+            }
+        }
+    }
+}
+
+// 700px
+@media screen and (max-width: 43.7rem) {
+    nav {
+        padding-inline: 3rem;
+        .main-nav-container {
+            padding-block: 2rem;
+            .hammenu-btn {
+                display: block !important;
+                margin-right: 1rem;
+            }
+            .logo {
+                margin-right: auto;
+            }
+            ul {
+                display: none;
+            }
+            .side-container {
+                .cart-container {
+                    inset-inline: 0;
+                }
+            }
+        }
+    }
+}
+
+// 500px
+@media screen and (max-width: 31.25rem) {
+    .product-info-container {
+        padding-inline: 0;
+    }
+    nav {
+        padding-inline: 1rem;
+    }
+    .price-section {
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .main-actions-container {
+        flex-direction: column;
+
+        .actions {
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+}

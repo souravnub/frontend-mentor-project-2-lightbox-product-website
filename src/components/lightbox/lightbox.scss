@@ -1,0 +1,60 @@
+.light-box-container {
+    position: fixed;
+    inset: 0;
+    background-color: var(--light-box-bg);
+
+    z-index: 9999;
+
+    display: grid;
+    place-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+
+    div {
+        button {
+            margin-left: auto;
+            display: block;
+            .icon {
+                color: white;
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.light-box-container.light-box-show {
+    animation: light-box-show 200ms ease forwards;
+}
+.light-box-container.light-box-hide {
+    animation: light-box-hide 200ms ease forwards;
+}
+
+@keyframes light-box-show {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+@keyframes light-box-hide {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    1% {
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
